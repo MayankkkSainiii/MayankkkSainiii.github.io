@@ -102,6 +102,7 @@ h2{font-family:var(--display);font-weight:900;font-size:clamp(40px,7vw,68px);lin
 
 /* Contact */
 .contact-list{margin-top:8px}
+.contact-list a[hidden]{display:none}
 .contact-list a{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:22px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:padding-left .2s}
 .contact-list a:hover{padding-left:12px}
 .contact-list span{color:var(--steel)}
@@ -250,7 +251,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
       <div class="contact-list">
         <a href="mailto:mayankksaini3105@gmail.com"><span>Email</span><strong>mayankksaini3105@gmail.com</strong></a>
         <a href="tel:+917239829652"><span>Phone</span><strong>+91 72398 29652</strong></a>
-        <a href="https://github.com/" id="ghlink2" target="_blank" rel="noopener"><span>GitHub</span><strong>github.com/your-username</strong></a>
+        <a class="soc" data-k="github" href="#" hidden target="_blank" rel="noopener"><span>GitHub</span><strong></strong></a>
+        <a class="soc" data-k="instagram" href="#" hidden target="_blank" rel="noopener"><span>Instagram</span><strong></strong></a>
+        <a class="soc" data-k="discord" href="#" hidden target="_blank" rel="noopener"><span>Discord</span><strong></strong></a>
       </div>
     </div>
   </section>
@@ -265,7 +268,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
 
 <script>
   // Yahan apna GitHub username likho (example: "mayank123")
-  const GITHUB_USER = "";
+  const GITHUB_USER = "mayankkksainiii";
 
   const list = document.getElementById("repos");
   const note = document.getElementById("ghnote");
@@ -273,9 +276,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
   if (GITHUB_USER) {
     const url = "https://github.com/" + GITHUB_USER;
     document.getElementById("ghlink").href = url;
-    const l2 = document.getElementById("ghlink2");
-    l2.href = url;
-    l2.querySelector("strong").textContent = "github.com/" + GITHUB_USER;
 
     fetch("https://api.github.com/users/" + GITHUB_USER + "/repos?sort=updated&per_page=6")
       .then(r => { if (!r.ok) throw new Error(); return r.json(); })
@@ -298,6 +298,21 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
   } else {
     note.textContent = "Set GITHUB_USER in the script at the bottom of index.html to show your repos here.";
   }
+
+  // Social links: link likho, khali chhodoge to woh link site par nahi dikhega
+  const SOCIALS = {
+    github:    { url: GITHUB_USER ? "https://github.com/" + GITHUB_USER : "", label: GITHUB_USER },
+    instagram: { url: "", label: "" },   // example: url "https://instagram.com/tumhara_username", label "@tumhara_username"
+    discord:   { url: "", label: "" }    // example: url "https://discord.com/users/TUMHARA_ID", label "tumhara_username"
+  };
+  document.querySelectorAll(".soc").forEach(a => {
+    const s = SOCIALS[a.dataset.k];
+    if (s && s.url) {
+      a.href = s.url;
+      a.querySelector("strong").textContent = s.label || s.url.replace("https://", "");
+      a.hidden = false;
+    }
+  });
 </script>
 </body>
 </html>

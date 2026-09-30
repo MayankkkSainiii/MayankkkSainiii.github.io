@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mayank | Portfolio</title>
+<meta name="description" content="Mayank, IT student at BKBIET Pilani. Coding, game development and game testing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --asphalt:#0d0e10;
+  --concrete:#c9cacc;
+  --steel:#8b8e93;
+  --panel:#16181b;
+  --line:#2a2d31;
+  --mblue:#1c69d4;
+  --mred:#e4002b;
+  --mdark:#0a3d91;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--asphalt);color:var(--concrete);font-family:var(--body);line-height:1.65;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--mblue);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+header{position:fixed;top:0;left:0;right:0;z-index:10;background:rgba(13,14,16,.82);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{font-family:var(--display);font-weight:900;font-size:24px;letter-spacing:.06em;text-decoration:none;color:#fff}
+nav ul{display:flex;gap:22px;list-style:none;font-size:15px}
+nav ul a{text-decoration:none;color:var(--steel);transition:color .2s}
+nav ul a:hover{color:#fff}
+.mstripe{display:flex;height:4px;width:64px}
+.mstripe i{flex:1}
+.mstripe i:nth-child(1){background:#4aa3ff}
+.mstripe i:nth-child(2){background:var(--mdark)}
+.mstripe i:nth-child(3){background:var(--mred)}
+
+/* Hero: image is the name background */
+.hero{min-height:100vh;display:flex;align-items:flex-end;position:relative;
+  background:
+    linear-gradient(180deg,rgba(13,14,16,.55) 0%,rgba(13,14,16,.15) 40%,rgba(13,14,16,.92) 100%),
+    url("bg.jpg") center 55%/cover no-repeat;}
+.hero .wrap{padding-bottom:9vh;width:100%}
+.hero h1{font-family:var(--display);font-weight:900;font-size:clamp(56px,17vw,240px);line-height:.88;letter-spacing:.01em;max-width:100%;overflow-wrap:anywhere;color:#e9eaeb;
+  text-shadow:0 6px 40px rgba(0,0,0,.6);margin:18px 0 22px}
+.hero p.role{font-size:clamp(18px,2.4vw,24px);color:#fff;max-width:30ch;font-weight:500}
+.hero p.sub{color:var(--steel);margin-top:6px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;padding:13px 26px;font-weight:600;text-decoration:none;border:1px solid var(--concrete);color:#fff;transition:background .2s,border-color .2s}
+.btn:hover{background:rgba(255,255,255,.08)}
+.btn.primary{background:var(--mblue);border-color:var(--mblue)}
+.btn.primary:hover{background:#2a7be8}
+
+/* Sections */
+section{padding:96px 0}
+h2{font-family:var(--display);font-weight:900;font-size:clamp(40px,7vw,68px);line-height:1;color:#fff;margin-bottom:12px}
+.lead{color:var(--steel);max-width:60ch;margin-bottom:44px}
+
+/* About: image is the photo background */
+.about{display:grid;grid-template-columns:minmax(240px,340px) minmax(0,1fr);gap:48px;align-items:start}
+.photo{aspect-ratio:3/4;position:relative;overflow:hidden;border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(13,14,16,.1),rgba(13,14,16,.55)),url("bg.jpg") center/cover no-repeat}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo .mstripe{position:absolute;left:0;bottom:0;width:100%;height:6px}
+.facts{margin-top:26px;border-top:1px solid var(--line)}
+.facts div{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.facts dt{width:84px;flex:none;color:var(--steel)}
+.facts dd{color:#fff;font-weight:500;min-width:0;overflow-wrap:anywhere}
+
+/* Skills */
+.skills{background:var(--panel);border-block:1px solid var(--line)}
+.skill{display:grid;grid-template-columns:minmax(150px,260px) 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--line)}
+.skill:last-child{border-bottom:0}
+.skill h3{font-family:var(--display);font-size:34px;color:#fff;line-height:1.1}
+.skill p{max-width:56ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tags span{font-size:14px;padding:3px 12px;border:1px solid var(--line);color:var(--concrete)}
+
+/* Projects */
+.proj{display:grid;grid-template-columns:1fr auto;gap:12px 24px;padding:26px 0;border-bottom:1px solid var(--line);align-items:center}
+.proj h3{font-size:22px;color:#fff;font-weight:600}
+.proj p{color:var(--steel);grid-column:1}
+.proj a{grid-column:2;grid-row:1/3;color:var(--mblue);font-weight:600;text-decoration:none;border-bottom:1px solid currentColor}
+
+/* GitHub */
+.gh{background:var(--panel);border-block:1px solid var(--line)}
+.gh-head{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;margin-bottom:34px}
+#repos{list-style:none}
+#repos li{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:20px 0;border-bottom:1px solid var(--line)}
+#repos a{color:#fff;font-weight:600;font-size:19px;text-decoration:none}
+#repos a:hover{color:var(--mblue)}
+#repos p{color:var(--steel);grid-column:1}
+#repos small{color:var(--steel);grid-column:2;grid-row:1/3;align-self:center}
+.note{color:var(--steel);font-size:15px}
+
+/* Contact */
+.contact-list{margin-top:8px}
+.contact-list a{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:22px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:padding-left .2s}
+.contact-list a:hover{padding-left:12px}
+.contact-list span{color:var(--steel)}
+.contact-list strong{color:#fff;font-size:clamp(18px,3vw,26px);font-weight:500;word-break:break-all}
+footer{padding:36px 0;border-top:1px solid var(--line);color:var(--steel);font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+
+@media(max-width:720px){
+  nav ul{gap:14px;font-size:14px}
+  .about,.skill{grid-template-columns:minmax(0,1fr)}
+  .photo{max-width:340px}
+  section{padding:72px 0}
+  .proj{grid-template-columns:1fr}
+  .proj a{grid-column:1;grid-row:auto}
+}
+@media(max-width:480px){nav ul li:nth-child(n+4){display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap" aria-label="Main">
+    <a class="logo" href="#top">MAYANK</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#github">GitHub</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="mstripe" aria-hidden="true"><i></i><i></i><i></i></div>
+      <h1>MAYANK</h1>
+      <p class="role">Coder, game developer and game tester.</p>
+      <p class="sub">IT student at BKBIET Pilani</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">See my work</a>
+        <a class="btn" href="#contact">Contact me</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <!-- Apni photo lagane ke liye: mayank.jpg file same folder me rakho aur niche wali line se comment hata do -->
+        <div class="photo" role="img" aria-label="Mayank">
+          <!-- <img src="mayank.jpg" alt="Mayank"> -->
+          <div class="mstripe" aria-hidden="true"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <div>
+        <h2>About me</h2>
+        <p class="lead" style="margin-bottom:0">I'm Mayank, an Information Technology student at BKBIET Pilani. I like writing code, building games and breaking them on purpose to find bugs before players do.</p>
+        <dl class="facts">
+          <div><dt>Name</dt><dd>Mayank</dd></div>
+          <div><dt>College</dt><dd>BKBIET Pilani</dd></div>
+          <div><dt>Branch</dt><dd>Information Technology (IT)</dd></div>
+          <div><dt>Focus</dt><dd>Coding, game dev, game testing</dd></div>
+          <div><dt>Email</dt><dd>mayankksaini3105@gmail.com</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <p class="lead">What I do and the tools I use for it.</p>
+
+      <div class="skill">
+        <h3>Coding</h3>
+        <div>
+          <p>Writing clean programs, solving problems and building small apps and tools.</p>
+          <div class="tags"><span>C / C++</span><span>Python</span><span>Java</span><span>HTML &amp; CSS</span><span>JavaScript</span></div>
+        </div>
+      </div>
+      <div class="skill">
+        <h3>Game development</h3>
+        <div>
+          <p>Designing gameplay, controls and levels, then turning them into playable games.</p>
+          <div class="tags"><span>Unity</span><span>C#</span><span>Gameplay logic</span><span>Level design</span></div>
+        </div>
+      </div>
+      <div class="skill">
+        <h3>Game testing</h3>
+        <div>
+          <p>Playing builds carefully, finding bugs, writing clear reports and checking that fixes work.</p>
+          <div class="tags"><span>Bug reporting</span><span>Test cases</span><span>Playtesting</span><span>Performance checks</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <p class="lead">A few things I've built. Replace these with your own and link each one to its GitHub repo.</p>
+
+      <div class="proj">
+        <h3>My first game</h3>
+        <p>A small game built to learn movement, collisions and scoring.</p>
+        <a href="https://github.com/YOUR-USERNAME/YOUR-REPO" target="_blank" rel="noopener">View code</a>
+      </div>
+      <div class="proj">
+        <h3>Bug report collection</h3>
+        <p>Sample test cases and bug reports from playtesting indie games.</p>
+        <a href="https://github.com/YOUR-USERNAME/YOUR-REPO" target="_blank" rel="noopener">View code</a>
+      </div>
+      <div class="proj">
+        <h3>This portfolio</h3>
+        <p>Hand-coded website in plain HTML and CSS, hosted on GitHub Pages.</p>
+        <a href="https://github.com/YOUR-USERNAME/YOUR-USERNAME.github.io" target="_blank" rel="noopener">View code</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GITHUB -->
+  <section id="github" class="gh">
+    <div class="wrap">
+      <h2>GitHub</h2>
+      <p class="lead">My latest public repositories, loaded live from GitHub.</p>
+      <div class="gh-head">
+        <a class="btn primary" id="ghlink" href="https://github.com/" target="_blank" rel="noopener">Open my GitHub profile</a>
+        <span class="note" id="ghnote"></span>
+      </div>
+      <ul id="repos"></ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p class="lead">Want to work together or talk about a game? Reach me here.</p>
+      <div class="contact-list">
+        <a href="mailto:mayankksaini3105@gmail.com"><span>Email</span><strong>mayankksaini3105@gmail.com</strong></a>
+        <a href="tel:+917239829652"><span>Phone</span><strong>+91 72398 29652</strong></a>
+        <a href="https://github.com/" id="ghlink2" target="_blank" rel="noopener"><span>GitHub</span><strong>github.com/your-username</strong></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Mayank, IT, BKBIET Pilani</span>
+    <span class="mstripe" aria-hidden="true"><i></i><i></i><i></i></span>
+  </div>
+</footer>
+
+<script>
+  // Yahan apna GitHub username likho (example: "mayank123")
+  const GITHUB_USER = "";
+
+  const list = document.getElementById("repos");
+  const note = document.getElementById("ghnote");
+
+  if (GITHUB_USER) {
+    const url = "https://github.com/" + GITHUB_USER;
+    document.getElementById("ghlink").href = url;
+    const l2 = document.getElementById("ghlink2");
+    l2.href = url;
+    l2.querySelector("strong").textContent = "github.com/" + GITHUB_USER;
+
+    fetch("https://api.github.com/users/" + GITHUB_USER + "/repos?sort=updated&per_page=6")
+      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+      .then(repos => {
+        const own = repos.filter(r => !r.fork);
+        if (!own.length) { note.textContent = "No public repositories yet."; return; }
+        own.forEach(r => {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = r.html_url; a.target = "_blank"; a.rel = "noopener"; a.textContent = r.name;
+          const p = document.createElement("p");
+          p.textContent = r.description || "No description yet.";
+          const s = document.createElement("small");
+          s.textContent = (r.language || "") + (r.stargazers_count ? "  ★ " + r.stargazers_count : "");
+          li.append(a, p, s);
+          list.appendChild(li);
+        });
+      })
+      .catch(() => { note.textContent = "Couldn't load repositories right now. Use the profile link instead."; });
+  } else {
+    note.textContent = "Set GITHUB_USER in the script at the bottom of index.html to show your repos here.";
+  }
+</script>
+</body>
+</html>

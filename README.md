@@ -1,2 +1,0 @@
-# MayankkkSainiii.github.io
-.
